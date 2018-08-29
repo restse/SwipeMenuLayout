@@ -20,7 +20,7 @@ public class ViewPagerActivity extends AppCompatActivity {
         mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
-                return FullDemoFragment.newInstance(position);
+                return ViewpagerFragment.newInstance(position);
             }
 
             @Override

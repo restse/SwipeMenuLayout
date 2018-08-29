@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.midas.swipemenulayout.FullDemo.FullDelDemoActivity;
+import com.midas.swipemenulayout.listview.ListViewActivity;
+import com.midas.swipemenulayout.recyclerview.RecyclerActivity;
+import com.midas.swipemenulayout.one.OthersActivity;
+import com.midas.swipemenulayout.view.LinearLayoutActivity;
 import com.midas.swipemenulayout.viewpager.ViewPagerActivity;
 
 
@@ -19,21 +22,21 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.rv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(v.getContext(), FullDelDemoActivity.class));
+                startActivity(new Intent(v.getContext(), RecyclerActivity.class));
             }
         });
 
         findViewById(R.id.lv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(v.getContext(), ListViewDelDemoActivity.class));
+                startActivity(new Intent(v.getContext(), ListViewActivity.class));
             }
         });
 
         findViewById(R.id.ll).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(v.getContext(), LinearLayoutDelDemoActivity.class));
+                startActivity(new Intent(v.getContext(), LinearLayoutActivity.class));
             }
         });
 
@@ -41,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, ViewPagerActivity.class));
+            }
+        });
+        findViewById(R.id.others).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, OthersActivity.class));
             }
         });
     }

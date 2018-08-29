@@ -15,23 +15,19 @@ import android.widget.Toast;
 
 import com.mcxtzhang.commonadapter.rv.CommonAdapter;
 import com.midas.swipemenulayout.R;
-import com.midas.swipemenulayout.SwipeBean;
-import com.midas.swipemenulibrary.SwipeMenuLayout;
+import com.midas.swipemenulayout.DataBean;
+import com.midas.swipemenulibrary.two.SwipeMenuLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- *@author Dell
- *@time 2018/8/27 16:50
- *@description:
+ * viewpager
  */
-
-public class FullDemoFragment extends Fragment {
-    public static FullDemoFragment newInstance(int position) {
+public class ViewpagerFragment extends Fragment {
+    public static ViewpagerFragment newInstance(int position) {
         Bundle args = new Bundle();
-        FullDemoFragment fragment = new FullDemoFragment();
+        ViewpagerFragment fragment = new ViewpagerFragment();
         args.putInt("index", position);
         fragment.setArguments(args);
         return fragment;
@@ -45,9 +41,9 @@ public class FullDemoFragment extends Fragment {
 
     private static final String TAG = "zxt";
     private RecyclerView mRecyclerView;
-    private CommonAdapter<SwipeBean> mAdapter;
+    private CommonAdapter<DataBean> mAdapter;
     private LinearLayoutManager mLayoutManager;
-    private List<SwipeBean> mDatas;
+    private List<DataBean> mDatas;
     private int mIndex;
 
     @Nullable
@@ -71,9 +67,9 @@ public class FullDemoFragment extends Fragment {
 
 
         initDatas();
-        mAdapter = new CommonAdapter<SwipeBean>(getContext(), mDatas, R.layout.item_cst_swipe) {
+        mAdapter = new CommonAdapter<DataBean>(getContext(), mDatas, R.layout.item_cst_swipe) {
             @Override
-            public void convert(final com.mcxtzhang.commonadapter.rv.ViewHolder holder, SwipeBean swipeBean) {
+            public void convert(final com.mcxtzhang.commonadapter.rv.ViewHolder holder, DataBean swipeBean) {
                 ((SwipeMenuLayout) holder.itemView).setIos(true).setLeftSwipe(mIndex == 0 ? false : true);// 并依次打开左滑右滑
                 holder.setText(R.id.content, swipeBean.name + (mIndex == 0 ? "左" : "右"));
 
@@ -116,7 +112,7 @@ public class FullDemoFragment extends Fragment {
                         int pos = holder.getLayoutPosition();
 
                         if (pos > 0 && pos < mDatas.size()) {
-                            SwipeBean swipeBean = mDatas.get(pos);
+                            DataBean swipeBean = mDatas.get(pos);
                             mDatas.remove(swipeBean);
                             mAdapter.notifyItemInserted(0);
                             mDatas.add(0, swipeBean);
@@ -162,7 +158,7 @@ public class FullDemoFragment extends Fragment {
     private void initDatas() {
         mDatas = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            mDatas.add(new SwipeBean("" + i));
+            mDatas.add(new DataBean("" + i));
         }
     }
 }

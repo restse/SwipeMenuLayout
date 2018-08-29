@@ -1,4 +1,4 @@
-package com.midas.swipemenulayout.FullDemo;
+package com.midas.swipemenulayout.recyclerview;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -11,28 +11,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.midas.swipemenulayout.R;
-import com.midas.swipemenulayout.SwipeBean;
-import com.midas.swipemenulibrary.SwipeMenuLayout;
+import com.midas.swipemenulayout.DataBean;
+import com.midas.swipemenulibrary.two.SwipeMenuLayout;
 
 import java.util.List;
-
-
 /**
- * 介绍：
- * 作者：zhangxutong
- * 邮箱：zhangxutong@imcoming.com
- * 时间： 2016/9/12.
+ *
  */
-
-public class FullDelDemoAdapter extends RecyclerView.Adapter<FullDelDemoAdapter.FullDelDemoVH> {
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.FullDelDemoVH> {
     private Context mContext;
     private LayoutInflater mInfalter;
-    private List<SwipeBean> mData;
+    private List<DataBean> mData;
 
-    public FullDelDemoAdapter(Context context, List<SwipeBean> mDatas) {
+    public RecyclerAdapter(Context context, List<DataBean> data) {
         mContext = context;
         mInfalter = LayoutInflater.from(context);
-        this.mData = mDatas;
+        this.mData = data;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.midas.swipemenulibrary;
+package com.midas.swipemenulibrary.two;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
@@ -7,15 +7,15 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 /**
- * Intro: 解决 滑动冲突的 ViewPager
+ * 解决 滑动冲突的 ViewPager
  * 因为ViewPager 和 SwipMenuLayout都是水平方向滑动的控件。
  * 所以在一起使用时会有冲突，
  * 使用本控件(CstViewPager)，可以在ViewPager的第一页使用左滑。在ViewPager的最后一页使用右滑菜单。
  */
 
 public class CstViewPager extends ViewPager {
-    private static final String TAG = "zxt/CstViewPager";
 
+    private static final String TAG = "CstViewPager";
 
     private int mLastX, mLastY;
 

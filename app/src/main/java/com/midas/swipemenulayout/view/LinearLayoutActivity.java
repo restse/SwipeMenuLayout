@@ -1,4 +1,4 @@
-package com.midas.swipemenulayout;
+package com.midas.swipemenulayout.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-public class LinearLayoutDelDemoActivity extends AppCompatActivity {
+import com.midas.swipemenulayout.R;
+
+public class LinearLayoutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,13 +18,13 @@ public class LinearLayoutDelDemoActivity extends AppCompatActivity {
         llContent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(LinearLayoutDelDemoActivity.this, "内容区域被点击", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LinearLayoutActivity.this, "内容区域被点击", Toast.LENGTH_SHORT).show();
             }
         });
         findViewById(R.id.btnDelete).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(LinearLayoutDelDemoActivity.this, "删除按钮被点击", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LinearLayoutActivity.this, "删除按钮被点击", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -31,13 +33,13 @@ public class LinearLayoutDelDemoActivity extends AppCompatActivity {
         llContent2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(LinearLayoutDelDemoActivity.this, "第二个内容区域被点击", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LinearLayoutActivity.this, "第二个内容区域被点击", Toast.LENGTH_SHORT).show();
             }
         });
         findViewById(R.id.btnDelete2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(LinearLayoutDelDemoActivity.this, "第二个删除按钮被点击", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LinearLayoutActivity.this, "第二个删除按钮被点击", Toast.LENGTH_SHORT).show();
             }
         });
     }

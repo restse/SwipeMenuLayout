@@ -1,4 +1,4 @@
-package com.midas.swipemenulayout.FullDemo;
+package com.midas.swipemenulayout.recyclerview;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,25 +10,21 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.midas.swipemenulayout.R;
-import com.midas.swipemenulayout.SwipeBean;
-import com.midas.swipemenulibrary.SwipeMenuLayout;
+import com.midas.swipemenulayout.DataBean;
+import com.midas.swipemenulibrary.two.SwipeMenuLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
- *
- *@author Dell
- *@time 2018/8/27 16:51
- *@description: 完整的删除demo
+ * 完整的删除demo
  */
-public class FullDelDemoActivity extends Activity {
+public class RecyclerActivity extends Activity {
     
     private RecyclerView mRv;
-    private FullDelDemoAdapter mAdapter;
+    private RecyclerAdapter mAdapter;
     private LinearLayoutManager mLayoutManager;
-    private List<SwipeBean> mData;
+    private List<DataBean> mData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +33,13 @@ public class FullDelDemoActivity extends Activity {
         mRv = (RecyclerView) findViewById(R.id.rv);
 
         initData();
-        mAdapter = new FullDelDemoAdapter(this, mData);
-        mAdapter.setOnDelListener(new FullDelDemoAdapter.onSwipeListener() {
+
+        mAdapter = new RecyclerAdapter(this, mData);
+        mAdapter.setOnDelListener(new RecyclerAdapter.onSwipeListener() {
             @Override
             public void onDel(int pos) {
                 if (pos >= 0 && pos < mData.size()) {
-                    Toast.makeText(FullDelDemoActivity.this, "删除:" + pos, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RecyclerActivity.this, "删除:" + pos, Toast.LENGTH_SHORT).show();
                     mData.remove(pos);
                     mAdapter.notifyItemRemoved(pos);//推荐用这个
                     //如果删除时，不使用mAdapter.notifyItemRemoved(pos)，则删除没有动画效果，
@@ -54,7 +51,7 @@ public class FullDelDemoActivity extends Activity {
             @Override
             public void onTop(int pos) {
                 if (pos > 0 && pos < mData.size()) {
-                    SwipeBean swipeBean = mData.get(pos);
+                    DataBean swipeBean = mData.get(pos);
                     mData.remove(swipeBean);
                     mAdapter.notifyItemInserted(0);
                     mData.add(0, swipeBean);
@@ -69,8 +66,7 @@ public class FullDelDemoActivity extends Activity {
         mRv.setAdapter(mAdapter);
         mRv.setLayoutManager(mLayoutManager = new GridLayoutManager(this, 2));
 
-        //6 2016 10 21 add , 增加viewChache 的 get()方法，
-        // 可以用在：当点击外部空白处时，关闭正在展开的侧滑菜单。我个人觉得意义不大，
+        // 可以用在：当点击外部空白处时，关闭正在展开的侧滑菜单
         mRv.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -88,7 +84,7 @@ public class FullDelDemoActivity extends Activity {
     private void initData() {
         mData = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            mData.add(new SwipeBean("" + i));
+            mData.add(new DataBean("" + i));
         }
     }
 }
